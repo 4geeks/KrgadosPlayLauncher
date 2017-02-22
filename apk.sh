@@ -9,4 +9,4 @@ NEW_FILE_NAME="/tmp/krgados-launcher-apk"-$BRANCH-$NOW.apk
 NEW_FILE_NAME="/tmp/krgados-launcher-apk.apk"
 cp "$FILE_NAME" "$NEW_FILE_NAME"
 chmod 400 private-key-for-scp
-scp -i private-key-for-scp "$NEW_FILE_NAME" root@104.131.91.126:/var/www/html/fdroid/repo
+scp -P 5388 -i private-key-for-scp "$NEW_FILE_NAME" pruebas-eme@162.252.57.227:/home/pruebas-eme/
