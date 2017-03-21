@@ -8,6 +8,7 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="4dp"
+    android:background="#363636"
     android:gravity="center_vertical">
 
     <ImageView
@@ -24,12 +25,14 @@
         android:paddingLeft="8dp"
         android:layout_weight="1"
         tools:text="Label"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimaryDark"
         tools:ignore="RtlHardcoded,RtlSymmetry" />
 
     <RadioButton
         android:id="@+id/radioButton"
         android:clickable="false"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
 </com.iuriich.KrgadosPlayLauncher.utils.CheckableListViewAppItem>
