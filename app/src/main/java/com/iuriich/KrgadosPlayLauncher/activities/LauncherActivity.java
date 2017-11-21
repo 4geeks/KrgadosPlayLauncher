@@ -8,9 +8,12 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.iuriich.KrgadosPlayLauncher.App;
@@ -26,6 +29,7 @@ public class LauncherActivity extends Activity {
     private WindowManager manager;
     private App app;
     private boolean showDialog = false;
+    private ImageView imageView = null;
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -38,6 +42,7 @@ public class LauncherActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         app = App.getInstance();
         manager = ((WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE));
@@ -45,6 +50,15 @@ public class LauncherActivity extends Activity {
         if(getIntent().getStringExtra("action") != null && getIntent().getStringExtra("action").equals("login")) {
             showDialog = true;
         }
+
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                showAdminPasswordDialog();
+                return false;
+            }
+        });
+
     }
 
     @Override

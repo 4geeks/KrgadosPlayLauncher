@@ -1,5 +1,6 @@
 package com.iuriich.KrgadosPlayLauncher;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -8,17 +9,32 @@ public class Preferences implements SharedPreferences.OnSharedPreferenceChangeLi
     private SharedPreferences sharedPreferences;
     private static Preferences instance;
 
+    //preferences constructor
+
     private Preferences() {
         instance = this;
+
         App application = App.getInstance();
+
+        //get the preferences
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        //sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                // Implementation
+            }
+        };
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
     public static Preferences getInstance() {
         if (instance == null) return new Preferences();
         else return instance;
     }
+
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {

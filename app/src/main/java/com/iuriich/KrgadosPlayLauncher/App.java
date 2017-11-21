@@ -15,6 +15,7 @@ public class App extends Application {
     private ArrayList<StatusbarBlockerViewGroup> blockersList;
 
     public static App getInstance() {
+
         return instance;
     }
 
